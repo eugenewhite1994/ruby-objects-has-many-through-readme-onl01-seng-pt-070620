@@ -14,24 +14,20 @@ class Customer
     @@all
   end
 
- # OBJECT RELATIONSHIPS - #new_meal, #meals, #waiters
-
- # Returns an Array of Meal instances associated with this customer
   def meals
     Meal.all.select do |meal|
       meal.customer == self
     end
   end
 
- # Returns an Array of Waiter instances associated w/ this customer's meals
+
   def waiters
     meals.map do |meal|
       meal.waiter
     end
   end
 
-  # Initializes a meal using the current Customer instance, 
-    # a provided Waiter instance and a total and tip
+
   def new_meal(waiter, total, tip=0)
     Meal.new(waiter, self, total, tip)
   end

@@ -37,7 +37,7 @@ class Customer
     Meal.new(waiter, self, total, tip)
   end
 
-  def self.oldest_customer # Class method to find the odlest customer
+  def self.oldest_customer
     oldest_age = 0
     oldest_customer = nil #not assigned yet 
     self.all.each do |customer|
@@ -48,3 +48,4 @@ class Customer
     end
     oldest_customer
   end
+end
